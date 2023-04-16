@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Admin Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      text-decoration: none;
+      list-style: none;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: montserrat;
+
+background-color: #0082e6;    }
+
+    nav {
+      background: #0082e6;
+      height: 80px;
+      width: 100%;
+      position: fi
+    }
+
+    label.logo {
+      color: white;
+      font-size: 35px;
+      line-height: 80px;
+      padding: 0 100px;
+      font-weight: bold;
+    }
+
+    nav ul {
+      float: right;
+      margin-right: 20px;
+    }
+
+    nav ul li {
+      display: inline-block;
+      line-height: 80px;
+      margin: 0 5px;
+    }
+
+    nav ul li a {
+      color: white;
+      font-size: 17px;
+      padding: 7px 13px;
+      border-radius: 3px;
+      text-transform: uppercase;
+    }
+
+    nav ul li a:hover {
+      color: #2c3e50;
+    }
+
+    a.active,
+    a:hover {
+      background: #1b9bff;
+      transition: .5s;
+    }
+
+    .checkbtn {
+      font-size: 30px;
+      color: white;
+      float: right;
+      line-height: 80px;
+      margin-right: 40px;
+      cursor: pointer;
+      display: none;
+    }
+
+    #check {
+      display: none;
+    }
+
+    @media (max-width: 952px) {
+      label.logo {
+        font-size: 30px;
+        padding-left: 50px;
+      }
+
+      nav ul li a {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 858px) {
+      .checkbtn {
+        display: block;
+      }
+
+      ul {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #2c3e50;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+      }
+
+      nav ul li {
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+      }
+
+      nav ul li a {
+        font-size: 20px;
+      }
+
+      a:hover,
+      a.active {
+        background: none;
+        color: #0082e6;
+      }
+
+      #check:checked~ul {
+        left: 0;
+      }
+    }
+
+    
+
+   
+
+
+    /* form */
+
+    form {
+      position: absolute;
+      top: 100px;
+      left: 100px;
+      height: 480px;
+      width: 300px;
+      /* background-color: aliceblue; */
+
+
+    }
+
+    #file {
+      position: relative;
+      left: 20px;
+
+
+    }
+
+    #brand {
+      height: 50px;
+      width: 250px;
+      font-size: 30px;
+      position: absolute;
+      left: 20px;
+      top: 40px;
+
+    }
+
+    #description {
+      height: 150px;
+      width: 250px;
+      font-size: 20px;
+      position: absolute;
+      left: 20px;
+      top: 100px;
+
+    }
+
+    #price {
+
+      height: 50px;
+      width: 250px;
+      font-size: 30px;
+      position: absolute;
+      left: 20px;
+      ;
+
+
+      top: 260px;
+
+    }
+
+    #grade {
+
+      height: 50px;
+      width: 250px;
+      font-size: 30px;
+      position: absolute;
+      left: 20px;
+
+
+      top: 320px;
+
+    }
+
+
+
+    #submit {
+      height: 50px;
+      width: 250px;
+      font-size: 30px;
+      position: absolute;
+      left: 20px;
+      top: 380px;
+      border-radius: 20px;
+      color: #0082e6;
+
+    }
+
+    #submit:hover {
+      background-color: #1b9bff;
+      color: aliceblue;
+
+    }
+
+    .gradeinfo {
+      position: relative;
+      right: -415px;
+      height: 1px;
+      width: 500px;
+      top: 60px;
+      
+
+
+    }
+    a.noclick       {
+  pointer-events: none;
+}
+    .gradeinfo h2{
+      position: relative;
+      top: -50px;
+      right: -350px;
+      color: white;
+    }
+
+    #image1 {
+      height: 400px;
+      background-color: violet;
+      width: 300px;
+    }
+
+    #image2 {
+      height: 400px;
+      position: relative;
+      width: 300px;
+      top: -18px;
+      left: 200px;
+      background-color: violet;
+    }
+
+    #img1 {
+
+      position: absolute;
+      height: 20px;
+      left: 520px;
+      width: -200px;
+      background-color: yellow;
+    }
+
+    .viewport {
+        box-sizing: border-box;
+        height: 480px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        width: 554px;
+        color: rgb(236, 208, 208);
+        font-size: 20px;
+        position: relative;
+        top: 30px;
+        right: -17px;
+      
+        overflow: scroll;
+
+    }
+
+    .viewport::-webkit-scrollbar {
+    display: none;
+    }
+    
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+
+<body>
+  <nav>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="fas fa-bars"></i>
+    </label>
+    <label   class="logo">Mobiloo</label>
+    <ul>
+      <li><a href="HomePage.jsp">Home</a></li>
+      <li><a class="active" href="About.html">About</a></li>
+
+      <li><a class="noclick" href="#" >Services</a></li>
+      <li><a href="ContactUs.html">Contact</a></li>
+      <li><a href="Feedback.html">Feedback</a></li>
+      <li><a href="Account.html">Login / Signup</a></li>
+      
+    </ul>
+  </nav>
+
+  
+
+
+  
+  <div class="gradeinfo">
+    <h2>Our Grade Information</h2>
+    <div id="img1"> <img src="grade1.png" alt="" id="image1"></div>
+    <div id="img2"> <img src="grade2.png" alt="" id="image2"></div>
+  </div>
+  
+  <div class="viewport">
+    <h2 style="color: aliceblue;">About Us</h2>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, voluptatum dolorum voluptates, natus ipsa
+    reiciendis eveniet fugit itaque labore nobis similique, praesentium est quos odio tenetur! Magni
+    nesciunt assumenda unde consectetur ipsa, dicta distinctio qui quasi odit, cum vel et sequi ea esse
+    cupiditate, doloremque maxime quidem excepturi inventore. Natus debitis aliquam non autem qui iusto sit
+    laudantium, alias numquam reiciendis molestias. Molestias quam animi quia facilis illo non sed illum
+    tempore veniam. Totam quibusdam voluptatum harum dolor ipsa perspiciatis rerum porro animi vero
+    delectus! Harum vel dignissimos deleniti aliquid ea dolorem possimus culpa esse, nihil nostrum
+    doloremque repellat aspernatur libero assumenda omnis necessitatibus in deserunt itaque fugit odio a
+    accusamus! Quisquam facilis nesciunt distinctio sequi blanditiis repellendus ducimus atque vero beatae
+    accusamus ipsam, magnam architecto ratione asperiores dignissimos, quo non, voluptas molestias. Incidunt
+    saepe neque illo cupiditate laudantium aperiam? Modi repellendus obcaecati ea aliquid ullam repellat
+    tempore delectus maxime porro accusantium! Optio deleniti dolorum odio saepe? Possimus, voluptates
+    cumque ipsum quibusdam alias accusamus, officia fugiat veniam, obcaecati molestiae tempore. Autem
+    laudantium numquam similique odio optio cum natus corporis fuga nam sed! Sint cumque fugiat totam fugit
+    amet recusandae odio ea, ex qui quidem dolore libero alias labore inventore repellat reiciendis
+    cupiditate, nesciunt rerum quo ipsa! Animi iure cum incidunt temporibus autem, similique doloribus
+    facere reiciendis aperiam fuga repellendus consequatur inventore eveniet eum quae nam. Temporibus ea
+    ratione magni aspernatur pariatur quia quis quam, illum aliquam sequi dolorem dicta voluptatibus minima
+    consectetur iste autem vel doloremque ipsum, amet recusandae quaerat. Blanditiis repudiandae provident
+    aperiam aspernatur quos quidem harum labore et dolores at exercitationem amet dolor corrupti sequi quasi
+    sunt officia commodi autem laudantium, rem architecto, vitae facere laboriosam? Modi accusamus
+    reprehenderit voluptatem laboriosam beatae, minus maiores voluptate placeat consequatur veritatis,
+    reiciendis expedita necessitatibus praesentium labore aspernatur provident voluptatibus quod excepturi
+    voluptas laudantium molestias dolores. Omnis aspernatur animi placeat itaque fuga officiis ducimus unde,
+    architecto culpa. Error magni qui quaerat? Illo error ea vero quam! Error deleniti iusto molestiae quos
+    expedita ipsam, perferendis illo omnis porro magni id repudiandae distinctio magnam veniam doloremque
+    repellendus sint, facere hic eligendi harum adipisci! Ipsam, quibusdam! Modi velit error unde architecto
+    adipisci cumque iste quasi quas tempora quidem assumenda exercitationem totam, nostrum officiis delectus
+    illo in ratione vitae numquam! Cupiditate atque necessitatibus id voluptatum perferendis tempore ab,
+    quidem quis incidunt sed fugit nesciunt quaerat natus consequatur. Atque iste reprehenderit assumenda
+    veniam nulla autem magni voluptate recusandae provident inventore sequi quis sint, iure voluptates
+    nostrum. Voluptas nisi vero inventore suscipit voluptatem a qui porro harum minima odit expedita facere
+    iste iusto dolores ullam nobis molestias natus, pariatur repellendus cum cupiditate perferendis soluta!
+    Voluptates neque, eligendi blanditiis vero voluptas impedit maxime nemo quibusdam? Perferendis qui at
+    debitis atque, sunt sapiente perspiciatis commodi eos tenetur deserunt modi minus veritatis delectus
+    numquam fugit sint veniam animi neque. Perspiciatis quia placeat est velit similique quaerat, iste
+    soluta fuga inventore ullam?
+    
+    ratione magni aspernatur pariatur quia quis quam, illum aliquam sequi dolorem dicta voluptatibus minima
+    consectetur iste autem vel doloremque ipsum, amet recusandae quaerat. Blanditiis repudiandae provident
+    aperiam aspernatur quos quidem harum labore et dolores at exercitationem amet dolor corrupti sequi quasi
+    sunt officia commodi autem laudantium, rem architecto, vitae facere laboriosam? Modi accusamus
+    reprehenderit voluptatem laboriosam beatae, minus maiores voluptate placeat consequatur veritatis,
+    reiciendis expedita necessitatibus praesentium labore aspernatur provident voluptatibus quod excepturi
+    voluptas laudantium molestias dolores. Omnis aspernatur animi placeat itaque fuga officiis ducimus unde,
+    architecto culpa. Error magni qui quaerat? Illo error ea vero quam! Error deleniti iusto molestiae quos
+    expedita ipsam, perferendis illo omnis porro magni id repudiandae distinctio magnam veniam doloremque
+    repellendus sint, facere hic eligendi harum adipisci! Ipsam, quibusdam! Modi velit error unde architecto
+    adipisci cumque iste quasi quas tempora quidem assumenda exercitationem totam, nostrum officiis delectus
+    illo in ratione vitae numquam! Cupiditate atque necessitatibus id voluptatum perferendis tempore ab,
+    quidem quis incidunt sed fugit nesciunt quaerat natus consequatur. Atque iste reprehenderit assumenda
+    veniam nulla autem magni voluptate recusandae provident inventore sequi quis sint, iure voluptates
+    nostrum. Voluptas nisi vero inventore suscipit voluptatem a qui porro harum minima odit expedita facere
+    iste iusto dolores ullam nobis molestias natus, pariatur repellendus cum cupiditate perferendis soluta!
+    Voluptates neque, eligendi blanditiis vero voluptas impedit maxime nemo quibusdam? Perferendis qui at
+    debitis atque, sunt sapiente perspiciatis commodi eos tenetur deserunt modi minus veritatis delectus
+    numquam fugit sint veniam animi neque. Perspiciatis quia placeat est velit similique quaerat, iste
+    soluta fuga inventore ullam?
+     ratione magni aspernatur pariatur quia quis quam, illum aliquam sequi dolorem dicta voluptatibus minima
+    consectetur iste autem vel doloremque ipsum, amet recusandae quaerat. Blanditiis repudiandae provident
+    aperiam aspernatur quos quidem harum labore et dolores at exercitationem amet dolor corrupti sequi quasi
+    sunt officia commodi autem laudantium, rem architecto, vitae facere laboriosam? Modi accusamus
+    reprehenderit voluptatem laboriosam beatae, minus maiores voluptate placeat consequatur veritatis,
+    reiciendis expedita necessitatibus praesentium labore aspernatur provident voluptatibus quod excepturi
+    voluptas laudantium molestias dolores. Omnis aspernatur animi placeat itaque fuga officiis ducimus unde,
+    architecto culpa. Error magni qui quaerat? Illo error ea vero quam! Error deleniti iusto molestiae quos
+    expedita ipsam, perferendis illo omnis porro magni id repudiandae distinctio magnam veniam doloremque
+    repellendus sint, facere hic eligendi harum adipisci! Ipsam, quibusdam! Modi velit error unde architecto
+    adipisci cumque iste quasi quas tempora quidem assumenda exercitationem totam, nostrum officiis delectus
+    illo in ratione vitae numquam! Cupiditate atque necessitatibus id voluptatum perferendis tempore ab,
+    quidem quis incidunt sed fugit nesciunt quaerat natus consequatur. Atque iste reprehenderit assumenda
+    veniam nulla autem magni voluptate recusandae provident inventore sequi quis sint, iure voluptates
+    nostrum. Voluptas nisi vero inventore suscipit voluptatem a qui porro harum minima odit expedita facere
+    iste iusto dolores ullam nobis molestias natus, pariatur repellendus cum cupiditate perferendis soluta!
+    Voluptates neque, eligendi blanditiis vero voluptas impedit maxime nemo quibusdam? Perferendis qui at
+    debitis atque, sunt sapiente perspiciatis commodi eos tenetur deserunt modi minus veritatis delectus
+    numquam fugit sint veniam animi neque. Perspiciatis quia placeat est velit similique quaerat, iste
+    soluta fuga inventore ullam?
+
+
+</div>
+ 
+  
+ 
+</body>
+
+</html>
